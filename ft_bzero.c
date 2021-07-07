@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 20:50:58 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/06 21:11:29 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/07 15:43:48 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
-	unsigned char *p;
+	size_t			i;
+	unsigned char	*p;
 
 	i = 0;
 	p = (unsigned char *) s;
