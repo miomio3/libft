@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 18:58:19 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/07 16:59:20 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/07 16:00:49 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/07 16:58:28 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include        <stdio.h>
+#include        <string.h>
 
-void	*ft_memset(void *buf, int ch, size_t n)
+void	*ft_memmove(void *buf1, const void *buf2, size_t n)
 {
-	size_t			i;
-	unsigned char	*p;
+	size_t	i;
+	char	*d;
 
+	d = (char *)buf1;
 	i = 0;
 	while (i < n)
 	{
-		p = (unsigned char *)buf;
-		*(p + i) = (unsigned char)ch;
+		*(d + n - i - 1) = *(char *)(buf2 + n - i - 1);
 		i++;
 	}
-	return (buf);
+	return (buf1);
 }
 
-int main (void)
+int	main(void)
 {
-    char str[] = "0123456789";
-    ft_memset(str+2, '*', 5);
-    printf("%s\n", str);
-    return (0);
+	char	str[] = "abcdefghijklmnopqrstu";
+
+	printf("移動前：%s\n", str);
+	memmove(str+5, str, 10);
+	printf("移動後：%s\n", str);
+	return (0);
 }
