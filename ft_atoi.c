@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:13:31 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/03/03 22:20:13 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/08 14:02:11 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isspace(char c)
 {
 	if (c == ' ' || c == '\f' || c == '\n'
-	|| c == '\r' || c == '\t' || c == '\v')
+		|| c == '\r' || c == '\t' || c == '\v')
 		return (1);
 	else
 		return (0);
@@ -21,9 +21,9 @@ int	ft_isspace(char c)
 
 int	ft_atoi(char *str)
 {
-	int i;
-	int negative;
-	int nb;
+	int	i;
+	int	negative;
+	int	nb;
 
 	i = 0;
 	nb = 0;
