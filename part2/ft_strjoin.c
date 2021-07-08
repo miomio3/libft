@@ -1,74 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin?.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 20:29:38 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/08 18:15:36 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/08 21:17:40 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
-char	*ft_strcat(char *dest, char *src)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (dest[i] != '\0')
-	{
-		i++;
-	}
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-int		ft_strlen(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	char	*array;
-	int		len;
+	char	*p;
 	int		i;
 
-	if (size == 0)
-	{
-		array = (char*)malloc(sizeof(char) * 1);
-		*array = '\0';
-		return (array);
-	}
-	len = 0;
-	i = -1;
-	while (++i < size)
-		len += ft_strlen(strs[i]);
-	array = (char *)(malloc(len + 1 + ft_strlen(sep) * (size - 1)));
-	*array = '\0';
 	i = 0;
-	while (i < size)
+	i = ft_strlen(s1) + ft_strlen(s2);
+	p = (char *)malloc(sizeof(char) * (i + 1));
+	i = 0;
+	while (*s1)
 	{
-		array = ft_strcat(array, strs[i]);
-		if (i < size - 1)
-			array = ft_strcat(array, sep);
+		*(p + i) = *s1;
 		i++;
+		s1++;
 	}
-	return (array);
+	while (*s2)
+	{
+		*(p + i) = *s2;
+		i++;
+		s2++;
+	}
+	*(p + i) = '\0';
+	return (p);
+}
+
+int main(void)
+{
+	char *s1 = "12345";
+	char *s2 = "abcde";
+	char *s3 = "";
+	printf("%s\n", ft_strjoin(s1, s2));
+	printf("%s\n", ft_strjoin(s1, s3));
+	return (0);
 }

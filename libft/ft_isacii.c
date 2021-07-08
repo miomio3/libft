@@ -6,11 +6,12 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 15:59:26 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/08 16:01:29 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/08 16:08:02 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <ctype.h>
 
 int	ft_isascii(int c)
 {
@@ -20,11 +21,10 @@ int	ft_isascii(int c)
 		return (0);
 }
 
-int main(0)
+int main(void)
 {
-    printf("%d\n", isascii('a'));
-    printf("%d\n", isascii('A'));
-    printf("%d\n", isascii('1'));
-    printf("%d\n", isascii('ｱ'));
+    printf("%d\n", ft_isascii('a'));
+    printf("%d\n", ft_isascii('A'));
+    printf("%d\n", ft_isascii('1'));
 	return (0);
 }
