@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/09 13:32:53 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/09 15:48:36 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int main(void)
 {
-	char *s1 = "abcdefghij klmnopq";
-	char *set = "afgh pq";
+	char *s1 = "ABCxAABBCCxBAC";
+	char *set = "ABC";
 	printf("%s\n", ft_strtrim(s1, set));
 	return (0);
 }
