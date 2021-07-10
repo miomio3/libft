@@ -6,12 +6,11 @@
 /*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 16:53:10 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/10 18:02:40 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/10 22:18:31 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

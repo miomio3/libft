@@ -6,13 +6,11 @@
 /*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/10 18:02:21 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/10 22:17:53 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_create_array(char *f, int *array)
 {

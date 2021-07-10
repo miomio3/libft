@@ -6,13 +6,11 @@
 /*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 20:29:38 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/10 18:02:29 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/10 22:18:10 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

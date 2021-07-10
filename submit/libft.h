@@ -6,14 +6,18 @@
 /*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 17:44:43 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/10 17:56:26 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/10 22:17:20 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef LIBFT_H_
+#define LIBFT_H_
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <unistd.h>
 
 int	ft_atoi(char *str)
 {
@@ -335,3 +339,5 @@ int	ft_toupper(int c)
 		c = c - 32;
 	return (c);
 }
+
+#endif

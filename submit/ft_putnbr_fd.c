@@ -6,11 +6,11 @@
 /*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 15:23:56 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/10 18:02:09 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/10 22:17:35 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

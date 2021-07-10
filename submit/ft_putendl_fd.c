@@ -6,11 +6,11 @@
 /*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 15:15:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/10 18:02:02 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/10 22:17:28 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
