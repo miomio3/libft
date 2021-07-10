@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/09 15:48:36 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/10 11:31:37 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ char	*ft_upfind(char const *c, char const *set)
 			p = ft_upfind(c + 1, set);
 			if (p == 0)
 				p = (char *)(c + 1);
-			break;
+			break ;
 		}
 		i++;
 	}
-	return(p);
+	return (p);
 }
 
 char	*ft_downfind(char const *c, char const *set)
@@ -47,7 +47,7 @@ char	*ft_downfind(char const *c, char const *set)
 		if (*c == *(set + i))
 		{
 			p = ft_downfind(c - 1, set);
-			break;
+			break ;
 		}
 		i++;
 	}
@@ -62,7 +62,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*tmp;
 	char	*p;
 	char	*down;
-	int 	i;
+	int		i;
 
 	s = strlen(s1);
 	p = (char *)malloc(sizeof(char) * (s + 1));

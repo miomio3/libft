@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/09 23:27:05 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/10 11:31:08 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,27 @@
 #include <stdio.h>
 #include <string.h>
 
-int		ft_size_array(char const *s, char c, int *array, int len)
+int	ft_create_array(char *f, int *array)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (f[i])
+	{
+		if (f[i] == '1' && f[i + 1] == '0')
+			j++;
+		else if (f[i] == '0')
+			array[j - 1]++;
+		i++;
+	}
+	j++;
+	array[j - 1] = 1;
+	return (j);
+}
+
+int	ft_size_array(char const *s, char c, int *array, int len)
 {
 	char	*f;
 	int		i;
@@ -31,18 +51,7 @@ int		ft_size_array(char const *s, char c, int *array, int len)
 			f[i + 1] = '0';
 		i++;
 	}
-	i = 0;
-	j = 0;
-	while(f[i])
-	{
-		if (f[i] == '1' && f[i + 1] == '0')
-			j++;
-		else if (f[i] == '0')
-			array[j - 1]++;
-		i++;
-	}
-	j++;
-	array[j - 1] = 1;
+	j = ft_create_array(f, array);
 	free(f);
 	return (j);
 }
@@ -67,11 +76,8 @@ void	ft_put_array(char const *s, char c, int *array, char **p)
 			k++;
 		i++;
 	}
-	
 	p[k][0] = 0;
 }
-
-
 
 char	**ft_split(char const *s, char c)
 {
@@ -84,11 +90,11 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	array = (int *)calloc(strlen(s), sizeof(char));
 	if (array == NULL)
-		return(NULL);
+		return (NULL);
 	size = ft_size_array(s, c, array, strlen(s));
 	p = (char **)calloc(size, sizeof(char *));
 	if (p == NULL)
-		return(NULL);
+		return (NULL);
 	i = 0;
 	while (*(array + i))
 	{
@@ -97,7 +103,7 @@ char	**ft_split(char const *s, char c)
 	}
 	ft_put_array(s, c, array, p);
 	free(array);
-	return(p);
+	return (p);
 }
 
 int     main(void)
