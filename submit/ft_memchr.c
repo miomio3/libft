@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/10 12:07:11 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 12:06:22 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 12:56:24 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 12:56:38 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memchr(const void *buf, int ch, size_t n)
 {
-	char			*p;
-	int				len;
-	unsigned int	i;
+	unsigned char	*p;
 
-	if (s == NULL || (*f) == NULL)
-		return (NULL);
-	len = strlen((char *)s);
-	p = (char *)calloc(len, sizeof(char));
-	if (p == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i])
+	p = (unsigned char *)buf;
+	while (n--)
 	{
-		p[i] = (*f)(i, s[i]);
-		i++;
+		if (*p == (unsigned char)ch)
+			break ;
+		p++;
 	}
-	return (p);
+	if (*p != (unsigned char)ch)
+		return (NULL);
+	return ((unsigned char *)p);
 }

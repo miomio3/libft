@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/10 12:07:11 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 12:06:22 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 12:58:10 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 12:58:27 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memcpy(void *buf1, const void *buf2, size_t n)
 {
-	char			*p;
-	int				len;
-	unsigned int	i;
+	char	*d;
 
-	if (s == NULL || (*f) == NULL)
+	d = (char *)buf1;
+	if (buf1 == 0 && buf2 == 0)
 		return (NULL);
-	len = strlen((char *)s);
-	p = (char *)calloc(len, sizeof(char));
-	if (p == NULL)
-		return (NULL);
-	i = 0;
-	while (s[i])
+	while (n--)
 	{
-		p[i] = (*f)(i, s[i]);
-		i++;
+		*d++ = *(const char *)buf2;
+		buf2++;
 	}
-	return (p);
+	return (buf1);
 }

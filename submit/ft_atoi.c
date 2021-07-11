@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/10 12:07:11 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 12:06:22 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 12:48:05 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_atoi(char *str)
 {
-	char			*p;
-	int				len;
-	unsigned int	i;
+	int	i;
+	int	sign;
+	int	nb;
 
-	if (s == NULL || (*f) == NULL)
-		return (NULL);
-	len = strlen((char *)s);
-	p = (char *)calloc(len, sizeof(char));
-	if (p == NULL)
-		return (NULL);
 	i = 0;
-	while (s[i])
+	while (str[i] == 32)
+		i++;
+	sign = 1;
+	if (str[i] == '-')
 	{
-		p[i] = (*f)(i, s[i]);
+		sign = -1;
 		i++;
 	}
-	return (p);
+	nb = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = nb * 10 + (str[i] - '0');
+		i++;
+	}
+	return (nb);
 }

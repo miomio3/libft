@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin?.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 20:29:38 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/08 21:17:40 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/11 12:00:56 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 
 	i = 0;
-	i = ft_strlen(s1) + ft_strlen(s2);
+	i = ft_strlen((char *)s1) + ft_strlen((char *)s2);
 	p = (char *)malloc(sizeof(char) * (i + 1));
 	i = 0;
 	while (*s1)

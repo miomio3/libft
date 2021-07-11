@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/10 12:07:11 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 12:06:22 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 13:04:58 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 13:06:14 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 {
-	char			*p;
-	int				len;
-	unsigned int	i;
+	size_t	n;
+	size_t	i;
+	size_t	j;
+	char	*p;
 
-	if (s == NULL || (*f) == NULL)
-		return (NULL);
-	len = strlen((char *)s);
-	p = (char *)calloc(len, sizeof(char));
-	if (p == NULL)
-		return (NULL);
+	n = 0;
 	i = 0;
-	while (s[i])
+	p = (char *)hay;
+	while (*(needle + n))
+		n++;
+	if (n == 0)
+		return (p);
+	while (i < len)
 	{
-		p[i] = (*f)(i, s[i]);
+		j = 0;
+		while (*(p + i + j) == *(needle + j) && i < len)
+		{
+			 j++;
+			if (j == n)
+				return (p + i);
+		}
 		i++;
 	}
-	return (p);
+	return (NULL);
 }

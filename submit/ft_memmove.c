@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/10 12:07:11 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 12:06:22 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 13:30:28 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 13:32:57 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memmove(void *buf1, const void *buf2, size_t n)
 {
-	char			*p;
-	int				len;
-	unsigned int	i;
+	size_t	i;
+	char	*d;
 
-	if (s == NULL || (*f) == NULL)
-		return (NULL);
-	len = strlen((char *)s);
-	p = (char *)calloc(len, sizeof(char));
-	if (p == NULL)
-		return (NULL);
+	d = (char *)buf1;
 	i = 0;
-	while (s[i])
+	while (i < n)
 	{
-		p[i] = (*f)(i, s[i]);
+		*(d + n - i - 1) = *(char *)(buf2 + n - i - 1);
 		i++;
 	}
-	return (p);
+	return (buf1);
 }

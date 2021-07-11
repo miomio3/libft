@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/10 12:07:11 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 12:06:22 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 12:57:21 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 12:57:38 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_memcmp(const void *buf1, const void *buf2, size_t n)
 {
-	char			*p;
-	int				len;
-	unsigned int	i;
+	size_t			i;
+	unsigned char	*s1;
+	unsigned char	*s2;
 
-	if (s == NULL || (*f) == NULL)
-		return (NULL);
-	len = strlen((char *)s);
-	p = (char *)calloc(len, sizeof(char));
-	if (p == NULL)
-		return (NULL);
 	i = 0;
-	while (s[i])
+	s1 = (unsigned char *)buf1;
+	s2 = (unsigned char *)buf2;
+	while (i < n)
 	{
-		p[i] = (*f)(i, s[i]);
+		if (*(s1 + i) < *(s2 + i))
+			return (-1);
+		if (*(s1 + i) > *(s2 + i))
+			return (1);
 		i++;
 	}
-	return (p);
+	return (0);
 }

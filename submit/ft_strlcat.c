@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/10 12:07:11 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 12:06:22 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 13:00:59 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 13:01:14 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+unsigned	int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	char			*p;
-	int				len;
 	unsigned int	i;
+	unsigned int	j;
 
-	if (s == NULL || (*f) == NULL)
-		return (NULL);
-	len = strlen((char *)s);
-	p = (char *)calloc(len, sizeof(char));
-	if (p == NULL)
-		return (NULL);
 	i = 0;
-	while (s[i])
-	{
-		p[i] = (*f)(i, s[i]);
+	j = 0;
+	while (dest[i])
 		i++;
+	if (size < i)
+	{
+		while (src[j])
+			j++;
+		return (size + j);
 	}
-	return (p);
+	while (size > 0 && i < size && src[j])
+		dest[i++] = src[j++];
+	dest[i] = '\0';
+	while (src[j++])
+		i++;
+	return (i);
 }
