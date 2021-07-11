@@ -6,7 +6,7 @@
 /*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/10 22:17:53 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/11 17:01:24 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,17 @@ char	**ft_split(char const *s, char c)
 
 	if (s == 0)
 		return (NULL);
-	array = (int *)calloc(strlen(s), sizeof(char));
+	array = (int *)ft_calloc(strlen(s), sizeof(char));
 	if (array == NULL)
 		return (NULL);
 	size = ft_size_array(s, c, array, strlen(s));
-	p = (char **)calloc(size, sizeof(char *));
+	p = (char **)ft_calloc(size, sizeof(char *));
 	if (p == NULL)
 		return (NULL);
 	i = 0;
 	while (*(array + i))
 	{
-		*(p + i) = (char *)calloc(*(array + i) + 1, sizeof(char));
+		*(p + i) = (char *)ft_calloc(*(array + i) + 1, sizeof(char));
 		i++;
 	}
 	ft_put_array(s, c, array, p);
