@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 20:27:52 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/08 19:52:37 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 13:00:08 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 13:00:24 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(char *src)
 {
