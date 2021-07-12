@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:00:08 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 13:00:24 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/13 06:25:18 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(char *src)
 		i++;
 	dest = (char *)malloc(sizeof(char) * i);
 	i = 0;
-	if (dest == '\0')
+	if (dest == NULL)
 		return (NULL);
 	else
 	{
