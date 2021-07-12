@@ -1,47 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/12 11:49:17 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/10 15:23:56 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/12 11:36:19 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+void	ft_put_fd(int keta, int n, int sign, int fd)
 {
-	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v')
-		return (1);
-	else
-		return (0);
+	int	tmp;
+	int	i;
+
+	while (keta--)
+	{
+		tmp = n;
+		i = 0;
+		while (i < keta)
+		{
+			tmp = tmp / 10;
+			i++;
+		}
+		ft_putchar_fd('0' + tmp % 10 * sign, fd);
+	}
 }
 
-int	ft_atoi(char *str)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	int	keta;
 	int	sign;
-	int	nb;
+	int	tmp;
 
-	i = 0;
-	while (ft_isspace(str[i]))
-		i++;
+	keta = 0;
+	tmp = n;
+	while (tmp)
+	{
+		tmp = tmp / 10;
+		keta++;
+	}
 	sign = 1;
-	if (str[i] == '-')
+	if (n < 0)
 	{
+		ft_putchar_fd('-', fd);
 		sign = -1;
-		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	nb = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nb = nb * 10 + (str[i] - '0');
-		i++;
-	}
-	return (nb * sign);
+	ft_put_fd(keta, n, sign, fd);
 }

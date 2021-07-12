@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/08 15:53:35 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/08 15:57:09 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 12:52:46 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 12:52:59 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-#include <stdio.h>
+#include "libft.h"
 
 int	ft_isalnum(int c)
 {
@@ -19,17 +18,4 @@ int	ft_isalnum(int c)
 		return (1);
 	else
 		return (0);
-}
-
-int main(void)
-{
-    if(ft_isalnum('a')){
-        puts("aは英数字です");
-    }
- 
-    if(ft_isalnum('=')){
-        puts("=は英数字です。");
-    }
-
-    return 0;
 }

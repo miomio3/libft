@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 22:44:16 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/08 12:42:50 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 13:03:16 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 13:03:29 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_strlen(char *str)
 {

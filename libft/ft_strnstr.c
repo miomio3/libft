@@ -1,7 +1,18 @@
-#include        <stdio.h>
-#include        <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/11 13:04:58 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 13:06:14 by mmidorik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+#include "libft.h"
+
+char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 {
 	size_t	n;
 	size_t	i;
@@ -10,7 +21,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	n = 0;
 	i = 0;
-	p = (char *)haystack;
+	p = (char *)hay;
 	while (*(needle + n))
 		n++;
 	if (n == 0)
@@ -27,25 +38,4 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		i++;
 	}
 	return (NULL);
-}
-
-int main(void)
-{
-        char    s1[] = "abcdefghijklmn";        /* 検索対象文字列 */
-        char    s2[] = "defgh";                 /* 一致する場合 */
-        char    s3[] = "xyz";                   /* 一致しない場合 */
-        char    s4[] = "abcdefghijklmnopqr";    /* 検索対象文字列より長い場合 */
-        char    s5[] = "";                      /* \0 */
-        char    *sp;
-        
-        sp = ft_strnstr(s1,s2,20);
-        printf("一致する場合 : %s\n",sp);
-        sp = ft_strnstr(s1,s3, 20);
-        printf("一致しない場合 : %s\n",sp);
-        sp = ft_strnstr(s1,s4, 20);
-        printf("検索対象文字列より長い場合 : %s\n",sp);
-        sp = ft_strnstr(s1,s5, 1);
-        printf("\\0 : %s\n",sp);
-        
-        return 0;
 }

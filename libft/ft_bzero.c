@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/06 20:50:58 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/07 15:43:48 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 12:48:59 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/11 12:49:16 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -25,12 +24,4 @@ void	ft_bzero(void *s, size_t n)
 		*(p + i) = 0;
 		i++;
 	}
-}
-
-int main(void)
-{
-	char str[] = "0123456789";
-	ft_bzero(str+2, 5);
-	printf("%s\n", str);
-	return (0);
 }
