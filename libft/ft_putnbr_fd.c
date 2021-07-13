@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 15:23:56 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/12 11:36:19 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/13 13:57:12 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		sign = -1;
 	}
+	else if (n == 0)
+		ft_putchar_fd('0', fd);
 	ft_put_fd(keta, n, sign, fd);
 }

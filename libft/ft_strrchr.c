@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:06:45 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 13:07:00 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/13 13:38:32 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		s++;
 	}
-	if (t == 0)
-		return (NULL);
 	return ((char *)t);
 }
