@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:30:28 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/13 06:26:26 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/14 03:19:42 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*ft_memmove(void *buf1, const void *buf2, size_t n)
 			i++;
 		}
 	}
-	else
+	else if (buf1 > buf2)
 	{
 		while (i < n)
 		{
