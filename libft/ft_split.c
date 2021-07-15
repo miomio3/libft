@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/13 18:34:56 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/14 22:25:41 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	ft_put_array(char const *s, char c, int *array, char **p)
 		}
 		if (j == array[k])
 		{
+			p[k][j] = '\0';
 			k++;
 			j = 0;
 		}
@@ -106,4 +107,3 @@ char	**ft_split(char const *s, char c)
 	free(array);
 	return (p);
 }
-

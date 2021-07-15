@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:02:00 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/13 08:25:25 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/15 18:50:24 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,12 @@ size_t	ft_strlcpy(char *dest, const char *src, unsigned int size)
 	while (*(src + i))
 		i++;
 	j = 0;
-	while (j < size - 1 && src[j])
+	while (j + 1 < size && src[j])
 	{
 		dest[j] = src[j];
 		j++;
 	}
-	while (dest[j])
-	{
+	if (size != 0)
 		dest[j] = '\0';
-		j++;
-	}
 	return (i);
 }
