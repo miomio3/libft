@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/13 18:32:16 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/16 13:40:00 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*down;
 	int		i;
 
-	s = ft_strlen((char *)s1);
+	s = strlen((char *)s1);//直す
 	p = (char *)malloc(sizeof(char) * (s + 1));
 	if (p == NULL)
 		return (NULL);
