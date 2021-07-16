@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:06:45 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/16 01:02:18 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/16 18:44:35 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		s++;
 	}
+	if (c == '\0')
+		return ((char *)s);
 	if (*t != (char)c)
 		return (NULL);
 	return ((char *)t);

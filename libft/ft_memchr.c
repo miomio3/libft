@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:56:24 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/15 17:44:56 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/16 19:27:35 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void	*ft_memchr(const void *buf, int ch, size_t n)
 	{
 		n--;
 		if (*p == (unsigned char)ch)
-			break ;
+			return ((unsigned char *)p);
 		p++;
 	}
-	if (*p != (unsigned char)ch || n == 0)
-		return (NULL);
-	return ((unsigned char *)p);
+	return (NULL);
+	
 }
