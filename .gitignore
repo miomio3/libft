@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Makefile
 *.log
 obj/
@@ -10,3 +11,8 @@ assets/tmp
 run_test
 assets/libtests
 *~
+=======
+/test/Libftest
+/libft-unit-test
+/freebsd
+>>>>>>> origin/master
