@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/14 22:25:41 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/16 23:36:37 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (*(array + i))
 	{
-		*(p + i) = (char *)ft_calloc(*(array + i) + 1, sizeof(char));
+		*(p + i) = (char *)malloc(sizeof(char) * (*(array + i) + 1));
 		i++;
 	}
 	ft_put_array(s, c, array, p);
