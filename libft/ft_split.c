@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/11 17:01:24 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/16 23:36:37 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_size_array(char const *s, char c, int *array, int len)
 	int		i;
 	int		j;
 
-	f = (char *)malloc(sizeof(char) * len);
+	f = (char *)ft_calloc(len, sizeof(char));
 	*f = '1';
 	i = 0;
 	while (*(s + i))
@@ -71,10 +71,14 @@ void	ft_put_array(char const *s, char c, int *array, char **p)
 			j++;
 		}
 		if (j == array[k])
+		{
+			p[k][j] = '\0';
 			k++;
+			j = 0;
+		}
 		i++;
 	}
-	p[k][0] = 0;
+	p[k] = NULL;
 }
 
 char	**ft_split(char const *s, char c)
@@ -96,7 +100,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (*(array + i))
 	{
-		*(p + i) = (char *)ft_calloc(*(array + i) + 1, sizeof(char));
+		*(p + i) = (char *)malloc(sizeof(char) * (*(array + i) + 1));
 		i++;
 	}
 	ft_put_array(s, c, array, p);

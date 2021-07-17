@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 15:21:18 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/12 16:00:18 by mmidorik         ###   ########.fr       */
+/*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
+/*   Updated: 2021/07/17 13:13:24 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,4 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (nb * sign);
-	return (nb);
 }
