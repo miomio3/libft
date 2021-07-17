@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <uj132139@outlook.jp>             +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:30:28 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/12 12:24:01 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/12 16:00:55 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,4 @@ void	*ft_memmove(void *buf1, const void *buf2, size_t n)
 		}
 	}
 	return (buf1);
-}
-
-int main(void)
-{
-	char	src[] = "lorem ipsum dolor sit amet";
-	char	*dest;
-
-	dest = src + 1;
-	ft_memmove(src, dest, 8);
-	printf("%s", src);
-	return (0);
 }

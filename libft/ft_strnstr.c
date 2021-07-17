@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:04:58 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 13:06:14 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/12 15:51:32 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 	while (i < len)
 	{
 		j = 0;
-		while (*(p + i + j) == *(needle + j) && i < len)
+		while (*(p + i + j) == *(needle + j) && i + j < len)
 		{
 			 j++;
 			if (j == n)
