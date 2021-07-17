@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:00:08 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/17 13:08:16 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/17 14:43:56 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdup(char *src)
 	i = 0;
 	while (src[i])
 		i++;
-	dest = (char *)malloc(sizeof(char) * i);
+	dest = (char *)malloc(sizeof(char) * (i + 1));
 	i = 0;
 	if (dest == NULL)
 		return (NULL);
