@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:13:31 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/14 22:36:21 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/18 17:29:18 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_put_num(int n, int keta, char *p)
 	if (n < 0)
 	{
 		*p = '-';
-		keta++;
 		*(p + keta - 1) = '0' - n % 10;
 		n = n / 10;
 		n = n * (-1);
@@ -44,6 +43,8 @@ char	*ft_itoa(int n)
 
 	keta = 0;
 	tmp = n;
+	if (tmp <= 0)
+		keta++;
 	while (tmp)
 	{
 		tmp = tmp / 10;
