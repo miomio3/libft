@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 17:44:43 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/13 07:36:08 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/17 14:37:06 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int				ft_memcmp(const void *buf1, const void *buf2, size_t n);
 void			*ft_memcpy(void *buf1, const void *buf2, size_t n);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(char *src);
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-size_t			ft_strlcpy(char *dest, const char *src, unsigned int size);
+size_t			ft_strlcat(char *dest, char *src, unsigned int size);
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 int				ft_strlen(char *str);
-int				ft_strncmp(char *s1, char *s2, unsigned int n);
+int				ft_strncmp(char *s1, char *s2, size_t n);
 char			*ft_strnstr(const char *hay, const char *needle, size_t len);
 char			*ft_strrchr(const char *s, int c);
 int				ft_tolower(int c);

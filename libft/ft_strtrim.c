@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/16 13:50:50 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/18 16:53:14 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ char	*ft_upfind(char const *c, char const *set)
 		if (*c == *(set + i))
 		{
 			p = ft_upfind(c + 1, set);
-			if (p == 0)
+			if (p == NULL)
 				p = (char *)(c + 1);
 			break ;
 		}
 		i++;
 	}
-	if (p == 0)
+	if (p == NULL)
 		return ((char *)c);
 	else
 		return (p);
@@ -66,14 +66,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 
 	s = ft_strlen((char *)s1);
-	p = (char *)malloc(sizeof(char) * (s + 1));
-	if (p == NULL)
-		return (NULL);
 	tmp = ft_upfind(s1, set);
 	down = ft_downfind(s1 + s - 1, set);
 	i = 0;
 	if (tmp >= down)
-		return ("");
+		return (ft_strdup(""));
+	p = (char *)malloc(sizeof(char) * (s + 1));
+	if (p == NULL)
+		return (NULL);
 	while (tmp != down + 1)
 	{
 		*(p + i) = *tmp;
