@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:02:00 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/17 13:27:17 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/18 22:20:01 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	j;
 
 	i = 0;
+	if (dst == NULL || src == NULL)
+		return (0);
 	while (*(src + i))
 		i++;
 	j = 0;

@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 16:53:10 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/18 16:01:51 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/18 22:18:57 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
+	if (s == NULL)
+		return (NULL);
 	while (*(s + start + i))
 		i++;
 	if (*s == '\0' || start >= (unsigned int)ft_strlen((char *)s))
