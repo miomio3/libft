@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/16 23:36:37 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/17 14:53:43 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ char	**ft_split(char const *s, char c)
 
 	if (s == 0)
 		return (NULL);
-	array = (int *)ft_calloc(strlen(s), sizeof(char));
+	array = (int *)ft_calloc(ft_strlen((char *)s), sizeof(char));
 	if (array == NULL)
 		return (NULL);
-	size = ft_size_array(s, c, array, strlen(s));
+	size = ft_size_array(s, c, array, ft_strlen((char *)s));
 	p = (char **)ft_calloc(size, sizeof(char *));
 	if (p == NULL)
 		return (NULL);
