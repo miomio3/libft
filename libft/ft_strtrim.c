@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/18 16:53:14 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/19 21:31:41 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*down;
 	int		i;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	s = ft_strlen((char *)s1);
 	tmp = ft_upfind(s1, set);
 	down = ft_downfind(s1 + s - 1, set);
-	i = 0;
 	if (tmp >= down)
 		return (ft_strdup(""));
-	p = (char *)malloc(sizeof(char) * (s + 1));
-	if (p == NULL)
-		return (NULL);
-	while (tmp != down + 1)
-	{
-		*(p + i) = *tmp;
-		tmp++;
+	p = tmp;
+	i = 0;
+	while (p++ != down)
 		i++;
-	}
-	p[i] = '\0';
+	ft_substr(tmp, 0, i + 1);
 	return (p);
 }

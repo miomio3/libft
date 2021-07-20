@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 13:55:34 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/18 18:32:50 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/20 14:19:28 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
+	if (s == NULL || f == NULL)
+		return ;
 	i = 0;
 	while (s[i])
 	{

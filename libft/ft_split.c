@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/17 14:53:43 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/19 21:26:46 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	**ft_split(char const *s, char c)
 
 	if (s == 0)
 		return (NULL);
-	array = (int *)ft_calloc(ft_strlen((char *)s), sizeof(char));
+	array = (int *)malloc(ft_strlen((char *)s) * sizeof(int));
 	if (array == NULL)
 		return (NULL);
 	size = ft_size_array(s, c, array, ft_strlen((char *)s));
