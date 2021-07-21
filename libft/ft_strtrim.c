@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/18 22:21:52 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/21 22:19:39 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*ft_substr2(char const *front, char const *back)
+{
+	char	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = (char *)front;
+	while (tmp[i])
+	{
+		if (&tmp[i] == back)
+			break ;
+		else
+			i++;
+	}
+	return (ft_substr(front, 0, i + 1));
+}
 
 char	*ft_upfind(char const *c, char const *set)
 {
@@ -61,7 +78,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		s;
 	char	*tmp;
-	char	*p;
 	char	*down;
 	int		i;
 
@@ -73,15 +89,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	if (tmp >= down)
 		return (ft_strdup(""));
-	p = (char *)malloc(sizeof(char) * (s + 1));
-	if (p == NULL)
-		return (NULL);
-	while (tmp != down + 1)
-	{
-		*(p + i) = *tmp;
-		tmp++;
-		i++;
-	}
-	p[i] = '\0';
-	return (p);
+	return (ft_substr2(tmp, down));
 }

@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/21 20:03:57 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/21 23:01:49 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ void	free_p(char **p)
 		free(p);
 		p = NULL;
 	}
+}
+
+char	**malloc_p(char **p, int i)
+{
+	p = (char **)malloc(sizeof(char *) * (i + 1));
+	if (p == NULL)
+		return (NULL);
+	p[i] = (char *)malloc(sizeof(NULL));
+	p[i] = NULL;
+	return (p);
 }
 
 char	*ft_strnochr(const char *s, char c, int f)
@@ -57,7 +67,7 @@ char	*ft_strnochr(const char *s, char c, int f)
 	}
 }
 
-char	*ft_substr2(char const *front, char const *back)
+static char	*ft_substr2(char const *front, char const *back)
 {
 	char	*tmp;
 	int		i;
@@ -79,17 +89,12 @@ char	**ft_split2(char	const *s, char c, int i)
 	char	*front;
 	char	*back;
 	char	**p;
+	int		t;
 
 	if (s == NULL)
 		return (NULL);
 	if (s[0] == '\0' || ft_strnochr(s, c, 0) == NULL)
-	{
-		p = (char **)malloc(sizeof(char *) * (i + 1));
-		if (p == NULL)
-			return (NULL);
-		p[i] = NULL;
-		return (p);
-	}
+		return (malloc_p(p, i));
 	else
 	{
 		front = ft_strnochr(s, c, 0);
