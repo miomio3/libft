@@ -6,11 +6,28 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/21 15:59:21 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/21 20:03:57 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	free_p(char **p)
+{
+	int	i;
+
+	i = 0;
+	while (p[++i])
+	{
+		free(p[i]);
+		p[i] = NULL;
+	}
+	if (p != NULL)
+	{
+		free(p);
+		p = NULL;
+	}
+}
 
 char	*ft_strnochr(const char *s, char c, int f)
 {

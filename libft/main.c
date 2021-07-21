@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void	free_p(char **p)
 {
@@ -138,18 +139,19 @@ int main(void)
 		a = ft_split("        split       this for   me  !       ", ' ');
 	while (a[i] != NULL)
 	{
-		free(a[i]);
 		printf("%s\n", a[i++]);
+		free(a[i - 1]);
 	}
 	printf("%s\n", a[i]);
 	free(a[i]);
 	free(a);
+	printf("\n");
 		i = 0;
 	a = ft_split("         ", ' ');
 	while (a[i] != NULL)
 	{
-		free(a[i]);
 		printf("%s\n", a[i++]);
+		free(a[i - 1]);
 	}
 	printf("%s\n", a[i]);
 	free(a[i]);
