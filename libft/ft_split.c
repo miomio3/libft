@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/21 09:38:30 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/21 15:59:21 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ char	**ft_split2(char	const *s, char c, int i)
 		back = ft_strnochr(front + 1, c, 1);
 		p = ft_split2(back + 1, c, i + 1);
 		p [i] =ft_substr2(front, back);
+		if (p[i] == NULL)
+			free_p(p + i);
 		return (p);
 	}
 }
