@@ -3,104 +3,106 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/22 22:25:37 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/23 08:19:38 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_create_array(char *f, int *array)
+void	free_p(char **p)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
-	while (f[i])
-	{
-		if (f[i] == '1' && f[i + 1] == '0')
-			j++;
-		else if (f[i] == '0')
-			array[j - 1]++;
-		i++;
-	}
-	j++;
-	array[j - 1] = 1;
-	return (j);
+	while (p[++i])
+		free(p[i]);
+	free(p[i]);
+	free(p);
 }
 
-int	ft_size_array(char const *s, char c, int *array, int len)
+char	*ft_strnochr(const char *s, char c, int f)
 {
-	char	*f;
+	if (f == 0)
+	{
+		while (*s)
+		{
+			if (*s == (char)c)
+				s++;
+			else
+				break ;
+		}
+		if (*s == (char)c || *s == '\0')
+			return (NULL);
+		return ((char *)s);
+	}
+	else
+	{
+		while (*s)
+		{
+			if (*s != (char)c)
+				s++;
+			else
+				break ;
+		}
+		return ((char *)s - 1);
+	}
+}
+
+static char	*ft_substr2(char const *front, char const *back)
+{
+	char	*tmp;
 	int		i;
-	int		j;
 
-	f = (char *)ft_calloc(len, sizeof(char));
-	*f = '1';
 	i = 0;
-	while (*(s + i))
+	tmp = (char *)front;
+	while (tmp[i])
 	{
-		if (*(s + i) == c)
-			f[i + 1] = '1';
+		if (&tmp[i] == back)
+			break ;
 		else
-			f[i + 1] = '0';
-		i++;
+			i++;
 	}
-	j = ft_create_array(f, array);
-	free(f);
-	return (j);
+	return (ft_substr(front, 0, i + 1));
 }
 
-void	ft_put_array(char const *s, char c, int *array, char **p)
+char	**ft_split2(char	const *s, char c, int i)
 {
-	int	i;
-	int	j;
-	int	k;
+	char	*front;
+	char	*back;
+	char	**p;
 
-	i = 0;
-	j = 0;
-	k = 0;
-	while (*(s + i))
+	if (s == NULL)
+		return (NULL);
+	if (s[0] == '\0' || ft_strnochr(s, c, 0) == NULL)
 	{
-		if (*(s + i) != c)
-		{
-			p[k][j] = *(s + i);
-			j++;
-		}
-		if (j == array[k])
-		{
-			p[k][j] = '\0';
-			k++;
-			j = 0;
-		}
-		i++;
+		p = (char **)malloc(sizeof(char *) * (i + 1));
+		if (p == NULL)
+			return (NULL);
+		p[i] = (char *)malloc(sizeof(NULL));
+		p[i] = NULL;
+		return (p);
 	}
-	p[k] = NULL;
+	else
+	{
+		front = ft_strnochr(s, c, 0);
+		back = ft_strnochr(front + 1, c, 1);
+		p = ft_split2(back + 1, c, i + 1);
+		p [i] =ft_substr2(front, back);
+		if (p[i] == NULL)
+			free_p(p + i);
+		return (p);
+	}
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**p;
-	int		size;
 	int		i;
-	int		*array;
 
+	i = 0;
 	if (s == NULL)
 		return (NULL);
-	array = (int *)malloc(sizeof(int) * ft_strlen((char *)s));
-	size = ft_size_array(s, c, array, ft_strlen((char *)s));
-	p = (char **)malloc(size * sizeof(char *));
-	if (p == NULL)
-		return (NULL);
-	i = 0;
-	while (*(array + i))
-	{
-		*(p + i) = (char *)malloc(sizeof(char) * (*(array + i) + 1));
-		i++;
-	}
-	ft_put_array(s, c, array, p);
-	return (p);
+	return (ft_split2(s, c, 0));
 }
