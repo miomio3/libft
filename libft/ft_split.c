@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/21 23:01:49 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/23 05:37:17 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,9 @@ void	free_p(char **p)
 
 	i = 0;
 	while (p[++i])
-	{
 		free(p[i]);
-		p[i] = NULL;
-	}
-	if (p != NULL)
-	{
-		free(p);
-		p = NULL;
-	}
-}
-
-char	**malloc_p(char **p, int i)
-{
-	p = (char **)malloc(sizeof(char *) * (i + 1));
-	if (p == NULL)
-		return (NULL);
-	p[i] = (char *)malloc(sizeof(NULL));
-	p[i] = NULL;
-	return (p);
+	free(p[i]);
+	free(p);
 }
 
 char	*ft_strnochr(const char *s, char c, int f)
@@ -89,12 +73,18 @@ char	**ft_split2(char	const *s, char c, int i)
 	char	*front;
 	char	*back;
 	char	**p;
-	int		t;
 
 	if (s == NULL)
 		return (NULL);
 	if (s[0] == '\0' || ft_strnochr(s, c, 0) == NULL)
-		return (malloc_p(p, i));
+	{
+		p = (char **)malloc(sizeof(char *) * (i + 1));
+		if (p == NULL)
+			return (NULL);
+		p[i] = (char *)malloc(sizeof(NULL));
+		p[i] = NULL;
+		return (p);
+	}
 	else
 	{
 		front = ft_strnochr(s, c, 0);
