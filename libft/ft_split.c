@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/19 21:26:46 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/22 22:25:37 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,11 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		*array;
 
-	if (s == 0)
+	if (s == NULL)
 		return (NULL);
-	array = (int *)malloc(ft_strlen((char *)s) * sizeof(int));
-	if (array == NULL)
-		return (NULL);
+	array = (int *)malloc(sizeof(int) * ft_strlen((char *)s));
 	size = ft_size_array(s, c, array, ft_strlen((char *)s));
-	p = (char **)ft_calloc(size, sizeof(char *));
+	p = (char **)malloc(size * sizeof(char *));
 	if (p == NULL)
 		return (NULL);
 	i = 0;
@@ -104,6 +102,5 @@ char	**ft_split(char const *s, char c)
 		i++;
 	}
 	ft_put_array(s, c, array, p);
-	free(array);
 	return (p);
 }

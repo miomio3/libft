@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:58:10 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/11 12:58:27 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:50:38 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	*ft_memcpy(void *buf1, const void *buf2, size_t n)
 		return (NULL);
 	while (n--)
 	{
-		*d++ = *(const char *)buf2;
-		buf2++;
+		*d++ = *(const char *)buf2++;
 	}
 	return (buf1);
 }

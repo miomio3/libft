@@ -6,11 +6,28 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/19 21:31:41 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:59:11 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*ft_substr2(char const *front, char const *back)
+{
+	char	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = (char *)front;
+	while (tmp[i])
+	{
+		if (&tmp[i] == back)
+			break ;
+		else
+			i++;
+	}
+	return (ft_substr(front, 0, i + 1));
+}
 
 char	*ft_upfind(char const *c, char const *set)
 {
@@ -61,9 +78,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		s;
 	char	*tmp;
-	char	*p;
 	char	*down;
-	int		i;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
@@ -72,10 +87,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 	down = ft_downfind(s1 + s - 1, set);
 	if (tmp >= down)
 		return (ft_strdup(""));
-	p = tmp;
-	i = 0;
-	while (p++ != down)
-		i++;
-	ft_substr(tmp, 0, i + 1);
-	return (p);
+	return (ft_substr2(tmp, down));
 }

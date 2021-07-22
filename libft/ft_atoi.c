@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/17 13:13:24 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:49:17 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,29 @@ int	ft_isspace(char c)
 
 int	ft_atoi(char *str)
 {
-	int	i;
-	int	sign;
-	int	nb;
+	size_t			i;
+	int				sign;
+	unsigned long	nb;
 
 	i = 0;
 	while (ft_isspace(str[i]))
 		i++;
 	sign = 1;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		sign = -1;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
 	nb = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		nb = nb * 10 + (str[i] - '0');
 		i++;
 	}
-	return (nb * sign);
+	if (nb > (unsigned long)(LONG_MAX) && sign == 1)
+		return ((int)LONG_MAX);
+	else if (nb > (unsigned long)(LONG_MIN) && sign == -1)
+		return ((int)LONG_MIN);
+	return ((int)nb * sign);
 }
