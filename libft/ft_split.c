@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/23 08:19:38 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/24 00:43:41 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	free_p(char **p)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (p[++i])
@@ -29,12 +29,12 @@ char	*ft_strnochr(const char *s, char c, int f)
 	{
 		while (*s)
 		{
-			if (*s == (char)c)
+			if (*s == c)
 				s++;
 			else
 				break ;
 		}
-		if (*s == (char)c || *s == '\0')
+		if (*s == c || *s == '\0')
 			return (NULL);
 		return ((char *)s);
 	}
@@ -42,7 +42,7 @@ char	*ft_strnochr(const char *s, char c, int f)
 	{
 		while (*s)
 		{
-			if (*s != (char)c)
+			if (*s != c)
 				s++;
 			else
 				break ;
@@ -53,14 +53,12 @@ char	*ft_strnochr(const char *s, char c, int f)
 
 static char	*ft_substr2(char const *front, char const *back)
 {
-	char	*tmp;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	tmp = (char *)front;
-	while (tmp[i])
+	while (front[i])
 	{
-		if (&tmp[i] == back)
+		if (&front[i] == back)
 			break ;
 		else
 			i++;
@@ -81,7 +79,6 @@ char	**ft_split2(char	const *s, char c, int i)
 		p = (char **)malloc(sizeof(char *) * (i + 1));
 		if (p == NULL)
 			return (NULL);
-		p[i] = (char *)malloc(sizeof(NULL));
 		p[i] = NULL;
 		return (p);
 	}
@@ -99,9 +96,6 @@ char	**ft_split2(char	const *s, char c, int i)
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-
-	i = 0;
 	if (s == NULL)
 		return (NULL);
 	return (ft_split2(s, c, 0));

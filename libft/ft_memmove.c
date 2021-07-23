@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:30:28 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/22 20:48:21 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/24 01:18:13 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *buf1, const void *buf2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	size_t			i;
 	unsigned char	*d;
 	unsigned char	*e;
 
-	d = (unsigned char *)buf1;
-	e = (unsigned char *)buf2;
+	d = (unsigned char *)dst;
+	e = (unsigned char *)src;
 	i = 0;
-	if (buf1 < buf2)
+	if (dst < src)
 	{
 		while (i < n)
 		{
@@ -29,7 +29,7 @@ void	*ft_memmove(void *buf1, const void *buf2, size_t n)
 			i++;
 		}
 	}
-	else if (buf1 > buf2)
+	else if (dst > src)
 	{
 		while (i < n)
 		{
@@ -37,5 +37,5 @@ void	*ft_memmove(void *buf1, const void *buf2, size_t n)
 			i++;
 		}
 	}
-	return (buf1);
+	return (dst);
 }
