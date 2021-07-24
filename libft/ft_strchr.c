@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:59:01 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/16 01:05:34 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/24 12:23:06 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{
-		if (*s == (char)c)
+		if (*(unsigned char *)s == (unsigned char)c)
 			break ;
 		s++;
 	}
-	if (*s != (char)c)
+	if (*(unsigned char *)s != (unsigned char)c)
 		return (NULL);
 	return ((char *)s);
 }

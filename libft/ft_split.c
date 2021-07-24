@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/21 20:10:50 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/24 14:58:12 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,13 @@
 
 void	free_p(char **p)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (p[++i])
-	{
 		free(p[i]);
-		p[i] = NULL;
-	}
-	if (p != NULL)
-	{
-		free(p);
-		p = NULL;
-	}
+	free(p[i]);
+	free(p);
 }
 
 char	*ft_strnochr(const char *s, char c, int f)
@@ -35,12 +29,12 @@ char	*ft_strnochr(const char *s, char c, int f)
 	{
 		while (*s)
 		{
-			if (*s == (char)c)
+			if (*s == c)
 				s++;
 			else
 				break ;
 		}
-		if (*s == (char)c || *s == '\0')
+		if (*s == c || *s == '\0')
 			return (NULL);
 		return ((char *)s);
 	}
@@ -48,7 +42,7 @@ char	*ft_strnochr(const char *s, char c, int f)
 	{
 		while (*s)
 		{
-			if (*s != (char)c)
+			if (*s != c)
 				s++;
 			else
 				break ;
@@ -57,16 +51,14 @@ char	*ft_strnochr(const char *s, char c, int f)
 	}
 }
 
-char	*ft_substr2(char const *front, char const *back)
+static char	*ft_substr2(char const *front, char const *back)
 {
-	char	*tmp;
-	int		i;
+	size_t	i;
 
 	i = 0;
-	tmp = (char *)front;
-	while (tmp[i])
+	while (front[i])
 	{
-		if (&tmp[i] == back)
+		if (&front[i] == back)
 			break ;
 		else
 			i++;
@@ -104,9 +96,6 @@ char	**ft_split2(char	const *s, char c, int i)
 
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-
-	i = 0;
 	if (s == NULL)
 		return (NULL);
 	return (ft_split2(s, c, 0));

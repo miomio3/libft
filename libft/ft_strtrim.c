@@ -3,34 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/21 09:59:00 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/24 15:01:38 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static char	*ft_substr2(char const *front, char const *back)
+{
+	size_t	i;
+
+	i = 0;
+	while (front[i])
+	{
+		if (&front[i] == back)
+			break ;
+		else
+			i++;
+	}
+	return (ft_substr(front, 0, i + 1));
+}
+
 char	*ft_upfind(char const *c, char const *set)
 {
-	int		i;
+	size_t	i;
 	char	*p;
 
 	i = 0;
-	p = NULL;
+	p = 0;
 	while (*(set + i))
 	{
 		if (*c == *(set + i))
 		{
 			p = ft_upfind(c + 1, set);
-			if (p == NULL)
+			if (p == 0)
 				p = (char *)(c + 1);
 			break ;
 		}
 		i++;
 	}
-	if (p == NULL)
+	if (p == 0)
 		return ((char *)c);
 	else
 		return (p);
@@ -38,7 +53,7 @@ char	*ft_upfind(char const *c, char const *set)
 
 char	*ft_downfind(char const *c, char const *set)
 {
-	int		i;
+	size_t	i;
 	char	*p;
 
 	i = 0;
@@ -54,28 +69,19 @@ char	*ft_downfind(char const *c, char const *set)
 	}
 	if (p == 0)
 		return ((char *)c);
-	return ((char *)p);
+	return (p);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		s;
 	char	*tmp;
-	char	*p;
 	char	*down;
-	int		i;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
-	s = ft_strlen((char *)s1);
 	tmp = ft_upfind(s1, set);
-	down = ft_downfind(s1 + s - 1, set);
+	down = ft_downfind(s1 + ft_strlen((char *)s1) - 1, set);
 	if (tmp >= down)
 		return (ft_strdup(""));
-	p = tmp;
-	i = 0;
-	while (p++ != down)
-		i++;
-	ft_substr(tmp, 0, i + 1);
-	return (p);
+	return (ft_substr2(tmp, down));
 }

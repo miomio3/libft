@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:57:21 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/16 18:22:22 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/22 21:06:13 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	ft_memcmp(const void *buf1, const void *buf2, size_t n)
 	s2 = (unsigned char *)buf2;
 	while (i < n)
 	{
-		if (*(s1 + i) < *(s2 + i))
-			return (-1);
-		if (*(s1 + i) > *(s2 + i))
-			return (1);
+		if (s1[i] < s2[i])
+			return (s1[i] - s2[i]);
+		if (s1[i] > s2[i])
+			return (s1[i] - s2[i]);
 		i++;
 	}
 	return (0);

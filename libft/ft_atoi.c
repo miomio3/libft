@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/21 09:54:27 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/24 15:04:04 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	ft_isspace(char c)
 		return (0);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int				i;
+	size_t			i;
 	int				sign;
 	unsigned long	nb;
 
