@@ -1,12 +1,8 @@
 /test
 /libft-unit-test
 /freebsd
-<<<<<<< HEAD
 /libft/Libftest
 /libftTester
 /02
-=======
-/Libftest
-libftTester
 /01
->>>>>>> ea970907a8e82ae11c6c7d208cc83e329e1b6351
+/03
