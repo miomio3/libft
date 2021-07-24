@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:30:28 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/24 01:18:13 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/24 12:21:08 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,18 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	size_t			i;
-	unsigned char	*d;
-	unsigned char	*e;
+	unsigned char	*d_unsigned;
+	unsigned char	*s_unsigned;
 
-	d = (unsigned char *)dst;
-	e = (unsigned char *)src;
-	i = 0;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	d_unsigned = (unsigned char *)dst;
+	s_unsigned = (unsigned char *)src;
 	if (dst < src)
-	{
-		while (i < n)
-		{
-			*(d + i) = *(e + i);
-			i++;
-		}
-	}
-	else if (dst > src)
-	{
-		while (i < n)
-		{
-			*(d + n - i - 1) = *(e + n - i - 1);
-			i++;
-		}
-	}
+		while (n--)
+			*(d_unsigned++) = *(s_unsigned++);
+	else if (dst >= src)
+		while (n--)
+			*(d_unsigned + n) = *(s_unsigned + n);
 	return (dst);
 }

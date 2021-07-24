@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:13:31 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/24 00:50:27 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/24 12:12:52 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_put_num(int n, int keta, char *p)
+void	ft_put_num(int n, int digits, char *p)
 {
 	int	i;
 
@@ -20,7 +20,7 @@ void	ft_put_num(int n, int keta, char *p)
 	if (n < 0)
 	{
 		*p = '-';
-		*(p + keta - 1) = '0' - n % 10;
+		*(p + digits - 1) = '0' - n % 10;
 		n = n / 10;
 		n = n * (-1);
 		i++;
@@ -29,7 +29,7 @@ void	ft_put_num(int n, int keta, char *p)
 		*p = '0';
 	while (n)
 	{
-		*(p + keta - i - 1) = '0' + n % 10;
+		*(p + digits - i - 1) = '0' + n % 10;
 		n = n / 10;
 		i++;
 	}
@@ -39,20 +39,20 @@ char	*ft_itoa(int n)
 {
 	int		tmp;
 	char	*p;
-	int		keta;
+	int		digits;
 
-	keta = 0;
+	digits = 0;
 	tmp = n;
 	if (tmp <= 0)
-		keta++;
+		digits++;
 	while (tmp)
 	{
 		tmp = tmp / 10;
-		keta++;
+		digits++;
 	}
-	p = ft_calloc(keta + 1, sizeof(char));
+	p = ft_calloc(digits + 1, sizeof(char));
 	if (p == NULL)
 		return (NULL);
-	ft_put_num(n, keta, p);
+	ft_put_num(n, digits, p);
 	return (p);
 }
