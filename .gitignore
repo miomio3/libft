@@ -1,5 +1,6 @@
 /test
 /libft-unit-test
 /freebsd
-/Libftest
-libftTester
+/libft/Libftest
+/libftTester
+/02

@@ -6,11 +6,28 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/21 10:00:20 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/21 20:10:50 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	free_p(char **p)
+{
+	int	i;
+
+	i = 0;
+	while (p[++i])
+	{
+		free(p[i]);
+		p[i] = NULL;
+	}
+	if (p != NULL)
+	{
+		free(p);
+		p = NULL;
+	}
+}
 
 char	*ft_strnochr(const char *s, char c, int f)
 {
@@ -79,6 +96,8 @@ char	**ft_split2(char	const *s, char c, int i)
 		back = ft_strnochr(front + 1, c, 1);
 		p = ft_split2(back + 1, c, i + 1);
 		p [i] =ft_substr2(front, back);
+		if (p[i] == NULL)
+			free_p(p + i);
 		return (p);
 	}
 }
