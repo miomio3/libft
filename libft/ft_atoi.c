@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/26 00:06:35 by mio              ###   ########.fr       */
+/*   Updated: 2021/07/26 00:20:29 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,21 @@ int	ft_isspace(char c)
 		return (0);
 }
 
-int	overflow(unsigned long nb, char str, int sign)
+static int	ft_overflow(unsigned long nb, char str, int sign)
 {
 	if (sign == 1)
+	{
 		if ((nb == (unsigned long)LONG_MAX / 10 && str - '0') || \
-		nb > (unsigned long)LONG_MAX)
-			return ((int)LONG_MAX);
+		nb > (unsigned long)LONG_MAX / 10)
+			return (1);
+	}
 	else
-		if (nb == (unsigned long)(LONG_MIN)/ 10 && str - '0')
-		return ((int)LONG_MIN);
-	return ((int)nb * sign);
+	{
+		if ((nb == (unsigned long)LONG_MIN / 10 && str - '0') || \
+		nb > (unsigned long)LONG_MIN /10)
+			return (-1);
+	}
+	return (0);
 }
 
 int	ft_atoi(const char *str)
@@ -45,19 +50,18 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign = -1;
-		i++;
 	}
 	nb = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		overflow = overflow(nb, str[i], sign);
+		overflow = ft_overflow(nb, str[i], sign);
 		if (overflow == -1)
 			return ((int)LONG_MIN);
 		if (overflow == 1)
-			return ((int)LONG_MIN);
-		nb = nb * 10 + (str[i] - '0');
-		i++;
+			return ((int)LONG_MAX);
+		nb = nb * 10 + (str[i++] - '0');
 	}
+	return ((int)nb);
 }
