@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/24 15:01:38 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/26 00:35:39 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,49 +27,43 @@ static char	*ft_substr2(char const *front, char const *back)
 	return (ft_substr(front, 0, i + 1));
 }
 
-char	*ft_upfind(char const *c, char const *set)
+char	*ft_upfind(const char *s, char *c)
 {
 	size_t	i;
-	char	*p;
+	size_t	j;
 
 	i = 0;
-	p = 0;
-	while (*(set + i))
+	while (s[i])
 	{
-		if (*c == *(set + i))
+		j = 0;
+		while (c[j])
 		{
-			p = ft_upfind(c + 1, set);
-			if (p == 0)
-				p = (char *)(c + 1);
-			break ;
+			if (s[i] == c[j])
+				break ;
+			j++;
 		}
 		i++;
 	}
-	if (p == 0)
-		return ((char *)c);
-	else
-		return (p);
 }
 
-char	*ft_downfind(char const *c, char const *set)
+char	*ft_downfind(const char *s, char *c)
 {
 	size_t	i;
-	char	*p;
+	size_t	j;
 
-	i = 0;
-	p = 0;
-	while (*(set + i))
+	i == ft_strlen(s);
+	while (i > 0)
 	{
-		if (*c == *(set + i))
+		j = 0;
+		while (c[j])
 		{
-			p = ft_downfind(c - 1, set);
-			break ;
+			if (s[i] == c[j])
+				break ;
+			j++;
 		}
-		i++;
+		i--;
 	}
-	if (p == 0)
-		return ((char *)c);
-	return (p);
+	return (s[i]);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -80,7 +74,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL || set == NULL)
 		return (NULL);
 	tmp = ft_upfind(s1, set);
-	down = ft_downfind(s1 + ft_strlen((char *)s1) - 1, set);
+	down = ft_downfind(s1 + ft_strlen(s1) - 1, set);
 	if (tmp >= down)
 		return (ft_strdup(""));
 	return (ft_substr2(tmp, down));
