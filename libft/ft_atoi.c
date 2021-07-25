@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/24 15:04:04 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/26 00:06:35 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,24 @@ int	ft_isspace(char c)
 		return (0);
 }
 
+int	overflow(unsigned long nb, char str, int sign)
+{
+	if (sign == 1)
+		if ((nb == (unsigned long)LONG_MAX / 10 && str - '0') || \
+		nb > (unsigned long)LONG_MAX)
+			return ((int)LONG_MAX);
+	else
+		if (nb == (unsigned long)(LONG_MIN)/ 10 && str - '0')
+		return ((int)LONG_MIN);
+	return ((int)nb * sign);
+}
+
 int	ft_atoi(const char *str)
 {
 	size_t			i;
 	int				sign;
 	unsigned long	nb;
+	int				overflow;
 
 	i = 0;
 	while (ft_isspace(str[i]))
@@ -39,12 +52,12 @@ int	ft_atoi(const char *str)
 	nb = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		overflow = overflow(nb, str[i], sign);
+		if (overflow == -1)
+			return ((int)LONG_MIN);
+		if (overflow == 1)
+			return ((int)LONG_MIN);
 		nb = nb * 10 + (str[i] - '0');
 		i++;
 	}
-	if (nb > (unsigned long)(LONG_MAX) && sign == 1)
-		return ((int)LONG_MAX);
-	else if (nb > (unsigned long)(LONG_MIN) && sign == -1)
-		return ((int)LONG_MIN);
-	return ((int)nb * sign);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:04:58 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/24 14:27:33 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/25 23:56:49 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strnstr(const char *hay, const char *needle, size_t len)
 		n++;
 	if (n == 0)
 		return ((char *)hay);
-	while (i < len)
+	while (i < len && hay[i])
 	{
 		j = 0;
 		while (*(hay + i + j) == *(needle + j) && i + j < len)
