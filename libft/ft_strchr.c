@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:59:01 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/24 12:23:06 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/26 11:57:40 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{
-		if (*(unsigned char *)s == (unsigned char)c)
+		if (*s == (char)c)
 			break ;
 		s++;
 	}
-	if (*(unsigned char *)s != (unsigned char)c)
+	if (*s != (char)c)
 		return (NULL);
 	return ((char *)s);
 }
