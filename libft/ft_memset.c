@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:50:11 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/17 13:07:55 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/26 19:08:59 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memset(void *buf, int ch, size_t n)
 	while (i < n)
 	{
 		p = (unsigned char *)buf;
-		*(p + i) = (unsigned char)ch;
+		p[i] = (unsigned char)ch;
 		i++;
 	}
 	return (buf);

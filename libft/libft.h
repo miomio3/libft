@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 17:44:43 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/24 14:56:50 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/26 22:03:04 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void			*ft_memchr(const void *buf, int ch, size_t n);
 int				ft_memcmp(const void *buf1, const void *buf2, size_t n);
 void			*ft_memcpy(void *buf1, const void *buf2, size_t n);
 char			*ft_strchr(const char *s, int c);
-char			*ft_strdup(char *src);
-size_t			ft_strlcat(char *dest, char *src, unsigned int size);
+char			*ft_strdup(const char *src);
+size_t			ft_strlcat(char *dest, const char *src, size_t size);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 size_t			ft_strlen(const char *str);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);

@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 15:21:02 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/17 13:07:24 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/26 12:10:48 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memchr(const void *buf, int ch, size_t n)
 	{
 		n--;
 		if (*p == (unsigned char)ch)
-			return ((unsigned char *)p);
+			return (p);
 		p++;
 	}
 	return (NULL);

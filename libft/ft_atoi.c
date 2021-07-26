@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/26 11:59:19 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/26 21:17:53 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_overflow(unsigned long nb, char str, int sign)
 	}
 	else
 	{
-		if ((nb == (unsigned long)LONG_MIN / 10 && str - '0') || \
+		if ((nb > (unsigned long)LONG_MIN / 10 && str - '0') || \
 		nb > (unsigned long)LONG_MIN /10)
 			return (-1);
 	}
@@ -63,5 +63,5 @@ int	ft_atoi(const char *str)
 			return ((int)LONG_MAX);
 		nb = nb * 10 + (str[i++] - '0');
 	}
-	return ((int)nb);
+	return ((int)nb * sign);
 }
