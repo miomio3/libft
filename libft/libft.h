@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 17:44:43 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/26 22:03:04 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/27 14:42:54 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ char			*ft_itoa(int n);
 void			*ft_memmove(void *buf1, const void *buf2, size_t n);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
-void			ft_put_fd(int keta, int n, int sign, int fd);
 void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char const *s, char c);
 char			*ft_strjoin(char const *s1, char const *s2);
@@ -54,5 +53,6 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif
