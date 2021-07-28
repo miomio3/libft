@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:00:08 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/26 21:55:48 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/28 11:43:25 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,11 @@ char	*ft_strdup(const char *src)
 	i = 0;
 	if (dest == NULL)
 		return (NULL);
-	else
+	while (src[i])
 	{
-		while (src[i])
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
-		return (dest);
+		dest[i] = src[i];
+		i++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }

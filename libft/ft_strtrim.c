@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/26 22:09:16 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/28 17:02:29 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL || set == NULL)
 		return (NULL);
 	len = ft_strlen(s1);
-	if (len == 0)
-		return ((char *)s1);
 	front = (char *)&s1[len - 1];
 	i = 0;
 	while (s1[i])
@@ -53,7 +51,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	}
 	down = down_find(front, set, ft_strlen(front));
-	if (front >= (char *)&s1[down])
+	if (down == 0)
 		return (ft_strdup(""));
 	return (ft_substr(front, 0, down + 1));
 }

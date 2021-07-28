@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 17:44:43 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/26 22:03:04 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/28 17:38:12 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif
