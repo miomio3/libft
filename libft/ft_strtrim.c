@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/28 17:02:29 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/28 17:42:11 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	len = ft_strlen(s1);
 	front = (char *)&s1[len - 1];
+	if (len == 0)
+		return (strdup(""));
 	i = 0;
 	while (s1[i])
 	{

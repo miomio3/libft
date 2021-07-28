@@ -6,7 +6,7 @@
 /*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 17:44:43 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/28 17:38:12 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/28 17:41:07 by mmidorik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ char			*ft_itoa(int n);
 void			*ft_memmove(void *buf1, const void *buf2, size_t n);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
-void			ft_put_fd(int keta, int n, int sign, int fd);
 void			ft_putstr_fd(char *s, int fd);
 char			**ft_split(char const *s, char c);
 char			*ft_strjoin(char const *s1, char const *s2);
