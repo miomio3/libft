@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/26 21:17:53 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/07/29 23:22:36 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ static int	ft_overflow(unsigned long nb, char str, int sign)
 {
 	if (sign == 1)
 	{
-		if ((nb == (unsigned long)LONG_MAX / 10 && str - '0') || \
+		if ((nb == (unsigned long)LONG_MAX / 10 && str - '0' >= (unsigned long)LONG_MAX % 10 ) || \
 		nb > (unsigned long)LONG_MAX / 10)
 			return (1);
 	}
 	else
 	{
-		if ((nb > (unsigned long)LONG_MIN / 10 && str - '0') || \
+		if ((nb > (unsigned long)LONG_MIN / 10 && str - '0' >= (unsigned long)LONG_MIN % 10) || \
 		nb > (unsigned long)LONG_MIN /10)
 			return (-1);
 	}
