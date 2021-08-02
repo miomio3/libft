@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:06:45 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/27 20:58:22 by mio              ###   ########.fr       */
+/*   Updated: 2021/08/03 01:07:19 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*t;
+	char			*t;
 	size_t			i;
-	unsigned char	*tmp;
 
 	i = 0;
 	t = NULL;
-	tmp = (unsigned char *)s;
-	while (tmp[i])
+	while (*s)
 	{
-		if (tmp[i] == (unsigned char)c)
-			t = &tmp[i];
-		i++;
+		if ((unsigned char *)s == (unsigned char)c)
+			t = s;
+		s++;
 	}
 	if (c == '\0')
-		return ((char *)tmp + i);
-	return ((char *)t);
+		return ((char *)s);
+	return (t);
 }

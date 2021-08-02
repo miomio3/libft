@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 16:53:10 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/29 23:25:53 by mio              ###   ########.fr       */
+/*   Updated: 2021/08/03 01:02:04 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,19 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	s_len;
 
-	i = 0;
 	if (s == NULL)
 		return (NULL);
-	s_len = ft_strlen((char *)s);
+	s_len = ft_strlen(s);
 	if (*s == '\0' || start >= s_len)
 		return (ft_strdup(""));
-	while (*(s + start + i))
-		i++;
 	if (len < s_len - start)
 		s_len = len;
 	p = (char *)malloc(sizeof(char) * (s_len + 1));
 	if (p == NULL)
 		return (NULL);
 	i = 0;
-	while (i < len && *(s + start + i))
-	{
-		*(p + i) = *(s + start + i);
-		i++;
-	}
-	*(p + i) = '\0';
+	while (i < len && s[start + i++])
+		p[i] = s[start + i];
+	p[i] = '\0';
 	return (p);
 }

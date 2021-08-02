@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:49:28 by mio               #+#    #+#             */
-/*   Updated: 2021/07/28 17:43:34 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/08/03 00:58:17 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**free_p(char **p)
+static char	**free_p(char **p)
 {
 	size_t	i;
 
@@ -26,7 +26,7 @@ char	**free_p(char **p)
 	return (NULL);
 }
 
-size_t	count_size(char const *s, char c)
+static size_t	count_size(char const *s, char c)
 {
 	size_t	size;
 	size_t	i;
@@ -44,7 +44,7 @@ size_t	count_size(char const *s, char c)
 	return (size);
 }
 
-char	**make_array(char const *s, char c, char **p)
+static char	**make_array(char const *s, char c, char **p)
 {
 	size_t	i;
 	size_t	start;

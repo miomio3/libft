@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 13:03:16 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/29 23:25:10 by mio              ###   ########.fr       */
+/*   Updated: 2021/08/03 00:59:31 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	while (*(str + i))
+	while (str[i])
 		i++;
 	return (i);
 }

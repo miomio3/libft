@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 16:13:31 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/24 15:03:34 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/08/03 00:57:40 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_put_num(int n, int digits, char *p)
+static void	ft_put_num(int n, int digits, char *p)
 {
 	int	i;
 

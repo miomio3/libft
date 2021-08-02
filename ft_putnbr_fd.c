@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 15:23:56 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/24 00:44:13 by mio              ###   ########.fr       */
+/*   Updated: 2021/08/03 00:57:55 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putnbr_fd(int n, int fd)
 		sign = -1;
 		ft_putchar_fd('-', fd);
 	}
-	if ((n / 10)* sign > 0)
+	if ((n / 10) * sign > 0)
 	{
 		ft_putnbr_fd((n / 10) * sign, fd);
 		ft_putchar_fd('0' + (n % 10) * sign, fd);

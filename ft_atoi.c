@@ -6,13 +6,13 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/29 23:22:36 by mio              ###   ########.fr       */
+/*   Updated: 2021/08/03 00:57:16 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	if (c == ' ' || c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v')
 		return (1);
@@ -24,13 +24,13 @@ static int	ft_overflow(unsigned long nb, char str, int sign)
 {
 	if (sign == 1)
 	{
-		if ((nb == (unsigned long)LONG_MAX / 10 && str - '0' >= (unsigned long)LONG_MAX % 10 ) || \
+		if ((nb == (unsigned long)LONG_MAX / 10 && str - '0' >= (unsigned long)LONG_MAX % 10 ) ||
 		nb > (unsigned long)LONG_MAX / 10)
 			return (1);
 	}
 	else
 	{
-		if ((nb > (unsigned long)LONG_MIN / 10 && str - '0' >= (unsigned long)LONG_MIN % 10) || \
+		if ((nb > (unsigned long)LONG_MIN / 10 && str - '0' >= (unsigned long)LONG_MIN % 10) ||
 		nb > (unsigned long)LONG_MIN /10)
 			return (-1);
 	}
