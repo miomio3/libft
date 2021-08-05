@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmidorik <mmidorik@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/07/28 17:42:11 by mmidorik         ###   ########.fr       */
+/*   Updated: 2021/08/05 23:08:15 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1);
 	front = (char *)&s1[len - 1];
 	if (len == 0)
-		return (strdup(""));
+		return (ft_strdup(""));
 	i = 0;
 	while (s1[i])
 	{
