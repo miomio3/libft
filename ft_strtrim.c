@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 20:48:36 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/08/05 23:08:15 by mio              ###   ########.fr       */
+/*   Updated: 2021/08/05 23:29:39 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == NULL || set == NULL)
 		return (NULL);
 	len = ft_strlen(s1);
-	front = (char *)&s1[len - 1];
 	if (len == 0)
 		return (ft_strdup(""));
+	front = (char *)&s1[len - 1];
 	i = 0;
 	while (s1[i])
 	{

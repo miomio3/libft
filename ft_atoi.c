@@ -6,7 +6,7 @@
 /*   By: mio <mio@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/11 12:47:48 by mmidorik          #+#    #+#             */
-/*   Updated: 2021/08/04 12:18:51 by mio              ###   ########.fr       */
+/*   Updated: 2021/08/04 21:46:53 by mio              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static int	ft_overflow(unsigned long nb, char str, int sign)
 	if (sign == 1)
 	{
 		if ((nb == (unsigned long)LONG_MAX / 10 && \
-		str - '0' >= (unsigned long)LONG_MAX % 10 ) || \
+		str - '0' >= (int)LONG_MAX % 10 ) || \
 		nb > (unsigned long)LONG_MAX / 10)
 			return (1);
 	}
 	else
 	{
 		if ((nb == (unsigned long)LONG_MIN / 10 && \
-		str - '0' >= (unsigned long)LONG_MIN % 10) || \
+		str - '0' >= (int)LONG_MIN % 10) || \
 		nb > (unsigned long)LONG_MIN / 10)
 			return (-1);
 	}
